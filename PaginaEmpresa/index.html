@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>       
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+        <title>Prueba 1</title>
+        <style> 
+            @import url('https://fonts.googleapis.com/css2?family=New+Amsterdam&display=swap');
+            @import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Miriam+Libre:wght@400;700&family=New+Amsterdam&display=swap');
+            
+            /* Ajusta la separación entre los ítems del menú en pantallas grandes */
+            @media (min-width: 768px) {
+                .navbar-nav .nav-item {
+                    margin-left: 30px; /* Espaciado entre ítems del menú en pantallas grandes */
+                }
+
+                .navbar-nav .nav-link {
+                    font-size: 27px; /* Tamaño de fuente en pantallas grandes */
+                    font-family: 'Arial', sans-serif; /* Fuente del menú */
+                    color: #007bff; /* Color del texto del menú */
+                    font-family: "Miriam Libre", sans-serif;
+                    font-weight: 400;
+                    font-style: normal;
+                    margin-bottom: 0px;                   
+                    color: #00025e; /* Color del texto */
+                    text-align: center; /* Alinea el texto justificadamente */
+                    transition: all 0.2s ease; /* Animación suave para cambios */
+                }
+            }
+            .navbar-nav .nav-link:hover {
+                color: #ffffff; /* Color del texto en blanco al pasar el ratón */
+                background-color: #003366; /* Fondo azul oscuro al pasar el ratón */
+                border-radius: 5px; /* Bordes redondeados en el fondo del enlace */
+            }
+
+            /* Estilo para imágenes con borde circular */
+            .navbar-nav .nav-item img {
+                border-radius: 50%; /* Borde circular para imágenes */
+            }
+            .internoMivimiento {
+                color: rgb(0, 10, 96); /* Color del texto blanco */
+                text-align: center; /* Alinea el texto al centro */
+                font-size: 100px;
+                font-family: "New Amsterdam", sans-serif;          
+            }   
+            
+            .navbar-brand img {
+                height: 3cm; /* Ajusta el tamaño del logo */
+                width: auto;
+                padding-left: 3vh;
+            }
+            .barra-horizontal {
+                background-color: rgb(255, 213, 62); /* Color amarillo */
+                height: 12px; /* Altura de la barra */
+                width: 100%; /* Ocupa todo el ancho */
+                padding: 15px 0px;
+                border: 2px solid #001e3e; /* Cambia el color y el grosor del borde */
+                border-radius: 3px; /* Opcional: redondea las esquinas */
+            } 
+            .barra-horizontal_Blanca {
+                background-color: rgb(255, 255, 255); /* Color amarillo */
+                height: 10px; /* Altura de la barra */
+                width: 100%; /* Ocupa todo el ancho */             
+                margin-bottom: 1vh; 
+            } 
+            
+            .image-container img {
+                max-width: 100%; /* Asegura que la imagen no sea más ancha que su contenedor */
+                height: auto; /* Mantiene la relación de aspecto */
+            }
+            .image-container {
+                display: flex;
+                justify-content: center; /* Centra la imagen horizontalmente */
+                align-items: center; /* Centra la imagen verticalmente, opcional */
+                text-align: center; /* Alinea el contenido al centro */
+            }
+            p {
+                font-family: Arial, sans-serif; /* Cambia la fuente del texto */
+                font-size: 30px; /* Tamaño del texto */
+                line-height: 1.5; /* Altura de línea para mejorar la legibilidad */
+                color: #333333; /* Color del texto */
+                text-align: justify; /* Alinea el texto justificadamente */
+                margin-bottom: 20px; /* Espaciado debajo de cada párrafo */
+            }
+            .container, h2{
+                margin-bottom: 70px;
+                font-family: "New Amsterdam", sans-serif;          
+                font-size: 50px; /* Tamaño del texto */
+                line-height: 1.5; /* Altura de línea para mejorar la legibilidad */
+                color: #ffffff; /* Color del texto */
+                text-align: center; /* Alinea el texto justificadamente */
+            }  
+            .subtitulo {
+            background-color: #003366; /* Azul oscuro */
+            color: white; /* Color del texto blanco */
+            padding: 0px; /* Espaciado interno alrededor del texto */
+            border-radius: 15px; /* Bordes redondeados opcionales */
+            text-align: center; /* Alinea el texto al centro */
+        }
+        .moving-text {
+            white-space: nowrap; /* Evita que el texto se rompa en varias líneas */
+            overflow: hidden; /* Oculta el texto que se desplaza fuera del contenedor */
+            box-sizing: border-box; /* Incluye el padding y border en el cálculo del ancho del contenedor */
+        }
+        .logosMini{
+            width: 50px; 
+            height: auto;
+        }
+        .moving-text p {
+            display: inline-block;
+            padding-left: 10%; /* Empieza el texto fuera del borde izquierdo del contenedor */
+            animation: move-text 9s linear infinite; /* Animación para mover el texto */
+        }
+        @keyframes move-text {
+            0% {
+                transform: translateX(100%); /* Empieza el texto fuera del borde derecho del contenedor */
+            }
+            100% {
+                transform: translateX(-100%); /* Mueve el texto fuera del borde izquierdo del contenedor */
+            }
+        }
+        .line {
+            border: none; /* Elimina los bordes por defecto del elemento hr */
+            border-top: 1px solid black; /* Línea negra delgada */
+            margin: 10px 0; /* Espaciado vertical alrededor de la línea */
+            margin-bottom: 20px;
+        }
+        .moving-text p{
+            font-family: "Miriam Libre", sans-serif;
+            font-weight: 400;
+            font-style: normal;
+            margin-bottom: 0px;
+            font-size: 50px; /* Tamaño del texto */
+            color: #00025e; /* Color del texto */
+            text-align: center; /* Alinea el texto justificadamente */
+        }  
+        .banner-container img {
+            position: absolute; /* Posiciona el GIF dentro del contenedor */
+            top: 50%; /* Centra el GIF verticalmente */
+            left: 50%; /* Centra el GIF horizontalmente */
+            transform: translate(-50%, -50%); /* Ajusta la posición para que esté centrado */
+            min-width: 100%; /* Asegura que el GIF cubra el ancho del contenedor */
+            min-height: 100%; /* Asegura que el GIF cubra la altura del contenedor */
+            width: auto; /* Ajusta el ancho automáticamente para mantener la relación de aspecto */
+            height: auto; /* Ajusta la altura automáticamente para mantener la relación de aspecto */
+        }
+        .banner {
+            background-image: url('BANNER.gif');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            border: 2px solid #001e3e; /* Cambia el color y el grosor del borde */
+            border-radius: 3px; /* Opcional: redondea las esquinas */
+        }
+
+        @media (min-width: 768px) {
+            .navbar {
+                font-size: 18px; /* Tamaño de fuente más grande en computadoras */
+                padding: 15px;
+            }
+            .banner {
+                height: 500px; /* Altura computadoras */
+            }
+        }
+
+        /* Estilos específicos para dispositivos móviles */
+        @media (max-width: 767px) {
+            .navbar {
+                font-size: 14px; /* Tamaño de fuente más pequeño en móviles */
+                padding: 10px;
+            }
+            .banner {
+                height: 100px; /* Altura reducida en móviles */
+            }
+        }
+        .narrow-paragraph {
+            max-width: 80%; /* Ajusta el ancho máximo del segundo párrafo */
+            margin: 0 auto; /* Centra el párrafo dentro del contenedor */
+        }
+        #botonSubir {
+            font-size: 40px;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            padding: 10px 20px;
+            background-color: #00026a;
+            color: rgb(243, 194, 0);
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            display: none; /* Inicialmente oculto */
+            
+        }
+        #botonSubir:hover {
+            background-color: #0056b3;
+        }
+        .custom-container {
+            background-color: #03192f; /* Cambia esto al color de fondo que desees */
+            padding: 20px; /* Añade espacio alrededor del contenido */
+            border-radius: 1cm;
+        }
+        .image-left {
+            width: 30%; /* Imagen responsiva */
+            max-width: 50%;
+            height: auto;
+            margin-right: 25px; /* Espacio entre la imagen y el texto */
+            border-radius: 50px;
+        }
+        .parrafoBlanco{
+            color: #ffffff;
+            margin-right: 25px; /* Espacio entre la imagen y el texto */
+        }
+        .footer-dark {
+            background-color: #343a40; /* Color de fondo oscuro */
+            color: white; /* Color de texto blanco */
+            padding: 20px 0; /* Espaciado interno del footer */
+            text-align: center; /* Centrar el contenido */
+        }
+        /* Contenedor principal responsivo */
+        .slider-container {
+            overflow: hidden; /* Oculta cualquier contenido que se salga del div */
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+        }
+        /* Contenedor interno que contiene todos los contenedores */
+        .slider {
+            display: flex;
+            transition: transform 1s ease-in-out; /* Animación suave */
+            width: 100%;
+        }
+        /* Contenedores individuales */
+        .slide {
+            min-width: 100%;
+            box-sizing: border-box;
+            padding: 20px;
+            text-align: center;
+        }
+        /* Estilo para los subtítulos, párrafos, y la imagen */
+        .slide h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+        .slide p {
+            font-size: 35px;
+            margin-bottom: 15px;
+        }
+        .slide img {
+            max-width: 300px;
+            height: auto;
+        }
+        .borde{
+            border: 2px solid #00025e;
+            border-radius: 1vh;
+        }
+        .tituloMovi{
+            font-family: "Miriam Libre", sans-serif;
+            font-weight: 400;
+            font-style: normal;
+            margin-bottom: 0px;
+            font-size: 80px; /* Tamaño del texto */
+            color: #00025e; /* Color del texto */
+            text-align: center; /* Alinea el texto justificadamente */
+        }
+        .toggle-container {
+            overflow: hidden;
+        }
+
+        /* Estilo para ocultar el párrafo inicialmente */
+        .toggle-text {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 1s ease, opacity 1s ease;
+            opacity: 0;
+        }
+
+        /* Mostrar el párrafo al pasar el ratón sobre el contenedor */
+        .toggle-container:hover .toggle-text {
+            max-height: 1000px; /* Ajusta este valor según el tamaño máximo del contenido */
+            opacity: 1;
+        }
+
+        /* Estilo opcional para el subtítulo */
+        .subtitle {
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .subtitle:hover {
+            color: #0056b3;
+        }
+        </style>
+    </head>
+    <body>
+
+        <div class="contanier">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <a class="navbar-brand" href="#">
+                    <img src="logo.png" alt="Logo de Edulift Academy">
+                </a>
+                <a class="navbar-brand " href="#"><p>Edulift Academy</p></a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ml-auto">              
+                        <li class="nav-item">
+                            <a class="nav-link" href="#cursos">Cursos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#pdf">Acerca de</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#telefono">Contacto</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" target="_blank" href="https://www.instagram.com/edulife_academy05?utm_source=qr"><img src="instavector.png" class="logosMini" alt=""></a>  
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" target="_blank" href="https://www.facebook.com/profile.php?id=61564994777800"><img src="faceVector.jpg" class="logosMini" alt=""></a>  
+                        </li>
+                    </ul>
+                </div>
+            </nav>           
+        </div>
+        <div class="barra-horizontal"></div>
+        <div class="container-fluid banner d-flex align-items-center justify-content-center">
+            <!-- Contenido opcional dentro del banner -->
+            <div class="text-center text-white">
+            
+            </div>
+        </div>
+        <div class="barra-horizontal"></div>
+        <div class="barra-horizontal_Blanca"></div>
+        <div class="container"><!-- MISION -->
+            <!-- Subtítulo que abarca todo el ancho -->
+            <div class="row">
+                <div class="col-12 text-center">
+                    <div class="subtitulo"> 
+                        <h2>NUESTRA MISIÓN</h2>
+                    </div>
+                </div>
+            </div>
+            <!-- Contenido con imagen a la izquierda y texto a la derecha -->
+            <div class="row">
+                <!-- Imagen a la izquierda -->
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="image-container">
+                        <img src="imagen1A.jpg" alt="Descripción de la imagen">
+                    </div>
+                </div>
+                <!-- Texto a la derecha -->
+                <div class="col-12 col-md-6 col-lg-8">
+                    <div class="text-container">
+                        <p>
+                            Dar una educación accesible y de alta calidad a través de una plataforma en línea, empoderando a los estudiantes de diversas edades y orígenes para adquirir habilidades relevantes, fomentando un entorno de aprendizaje flexible e innovador.
+                        </p>
+                    </div>
+                </div>
+            </div>
+         
+        </div>
+        <div class="container"><!-- vISION -->
+            <!-- Subtítulo que abarca todo el ancho -->
+            <div class="row">
+                <div class="col-12 text-center">
+                    <div class="subtitulo">
+                        <h2>NUESTRA VISIÓN</h2>
+                    </div>
+                </div>
+            </div>
+            <!-- Contenido con texto a la izquierda y imagen a la derecha -->
+            <div class="row">
+                <!-- Texto a la izquierda -->
+                <div class="col-12 col-md-6 col-lg-8">
+                    <div class="text-container">
+                        <p>
+                            Ser la plataforma líder en educación en línea reconocida por su compromiso con la excelencia, la innovación y la accesibilidad. Aspiramos a transformar la manera en que las personas aprenden, promoviendo el desarrollo personal y profesional de nuestros estudiantes y contribuyendo a un futuro donde la educación sea una herramienta para el empoderamiento. 
+                        </p>
+                    </div>
+                </div>
+                <!-- Imagen a la derecha -->
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="image-container">
+                        <img src="imagen1B.jpg" alt="Descripción de la imagen">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container"><!-- Texto en movimiento -->
+            <!-- Texto en movimiento horizontal -->
+            <div class="row">
+                <div class="col-12">
+                    <div class="moving-text">
+                        <p>¡¡PRUEBA ALGUNO DE NUESTROS CURSOS!!</p>
+                    </div>
+                    <hr class="line">
+                </div>
+            </div>
+        </div>
+        <div class="w-100" style="background-color: #6496ab80;">
+            <div class="container-fluid slider-container" id="cursos">
+                <!-- Contenedor que contiene todos los slides -->
+                <div class="slider">
+                    <!-- Contenedores internos -->
+                    <div class="slide bg-light borde">
+                        <p class="tituloMovi">Desarrollo WEB</p>
+                        <p>Aprende las bases para desarrollar tu sitio amigable para tus usuarios con este curso de FrontEnd.</p>
+                        <img src="desarrolloWEB_INDEX.png" alt="Imagen 1" class="img-fluid">
+                    </div>
+                    <div class="slide bg-light text-white borde">
+                        <p class="tituloMovi">Introducción a la programación</p>
+                        <p>Conoce las bases y adentrate en este mundo </p>
+                        <img src="imagen1C.jpg" alt="Imagen 2" class="img-fluid">
+                    </div>
+                    <div class="slide bg-light text-white borde">
+                        <p class="tituloMovi">Programacion en Java, C# y Python<p>
+                        <p>Conoce las bases de la programacion funcional y orientado a objetos con este curso donde puedes trabajar con Python, Java o C#.</p>
+                        <img src="imagen1D.jpg" alt="Imagen 3" class="img-fluid">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Botones para cambiar manualmente -->
+        <div class="text-center mt-3">
+            <button class="btn btn-primary" onclick="goToSlide(0)">Desarrollo WEB</button>
+            <button class="btn btn-primary" onclick="goToSlide(1)">Introducción a la progamación</button>
+            <button class="btn btn-primary" onclick="goToSlide(2)">Java, c# y Python</button>
+            <!-- Barra horizontal de color blanco -->
+        </div>
+        <hr class="line">
+        <div class="container mt-4">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <!-- Contenedor que envuelve el subtítulo y el párrafo -->
+                    <div class="toggle-container">
+                        <!-- Subtítulo -->
+                        <h2 class="subtitle subtitulo">NUESTROS VALORES</h2>
+                        <!-- Párrafo que se mostrará al interactuar -->
+                        <div class="toggle-text">
+                            <p class="narrow-paragraph">
+                                -	Accesibilidad: Creemos en la educación como un derecho fundamental y trabajamos para eliminar barreras que impidan el acceso al aprendizaje. 
+                            </p>
+                            <H3> </H3>
+                            <p class="narrow-paragraph">
+                                -	Calidad: Nos comprometemos a ofrecer cursos de alta calidad, diseñados y actualizados por expertos. 
+                            </p>
+                            <H3> </H3>
+                            <p class="narrow-paragraph">
+                                -	Innovación: Fomentamos la creatividad y la adopción de nuevas tecnologías para mejorar la experiencia educativa y adaptarnos a las necesidades cambiantes de los estudiantes. 
+                            </p>
+                            <H3> </H3>
+                            <p class="narrow-paragraph">
+                                -	Inclusividad: Valoramos la diversidad y promovemos un entorno de aprendizaje que respete y celebre las diferencias culturales y sociales. 
+                            </p>
+                            <p class="narrow-paragraph">
+                                -	Responsabilidad: Nos hacemos responsables de la calidad de nuestra educación y del impacto que tiene en la vida de nuestros estudiantes. 
+                            </p>
+                            <H3> </H3>
+                            <p class="narrow-paragraph">
+                                -	Desarrollo Continuo: Fomentamos el aprendizaje a lo largo de la vida, alentando a nuestros estudiantes a seguir creciendo y actualizándose en sus habilidades y conocimientos. 
+                            </p>
+                            <H3> </H3>
+                            <p class="narrow-paragraph">
+                                -	Empoderamiento: Buscamos empoderar a nuestros estudiantes para que tomen el control de su educación y desarrollo profesional, ayudándoles a alcanzar sus objetivos personales y laborales. 
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <!-- Contenedor personalizado con fondo diferente -->
+            <div class="custom-container">
+                <!-- Subtítulo a todo lo ancho -->
+                <h2 class="text-center" id="pdf">Conoce nuestro plan</h2>
+                <div class="d-flex align-items-start">
+                    <img src="imagen1E.jpg" alt="Descripción de la imagen" class="image-left">
+                    <p class="parrafoBlanco">
+                        -	A través de este documento puedes conocer el plan de negocio que nosotros en Edulife Academy desarrollamos para darte le mejor experiencia para ti. 
+                        <br><br><br>
+                        <a href="cursosEnLinea.pdf" style="text-align: center;" target="_blank"><img style="width: 150px; margin-left: 3cm;" src="imagen1F.jpg" alt=""></a>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <!--<div class="container">
+            <div class="row">
+                <div class="col-12">
+
+                    <p>
+                        Este es un párrafo completo que ocupa todo el ancho del contenedor. Aquí puedes colocar texto largo que debe abarcar toda la línea disponible en el contenedor. 
+                    </p>
+                    
+                    <p class="narrow-paragraph">
+                        Este es un párrafo menos ancho que el anterior. Está diseñado para tener un ancho máximo menor y estar centrado debajo del primer párrafo.
+                    </p>
+                </div>
+            </div>
+        </div>-->
+        <!--<div class="container">
+            <div class="row">
+                <div class="col-12">
+                    
+                    <p>
+                        Este es un párrafo completo que ocupa todo el ancho del contenedor. Aquí puedes colocar texto largo que debe abarcar toda la línea disponible en el contenedor. 
+                    </p>
+                   
+                    <p class="narrow-paragraph">
+                        Este es un párrafo menos ancho que el anterior. Está diseñado para tener un ancho máximo menor y estar centrado debajo del primer párrafo.
+                    </p>
+                </div>
+            </div>
+        </div> -->
+        
+        <div class="w-100" style="background-color: #6496ab80;">
+            <div class="container py-5">
+                <div class="row">
+                    <div class="col text-center">
+                        <img src="imagen1G.png" alt="Imagen 2" class="img-fluid">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr class="line">
+        <div class="w-100" style="background-color: #ebd75697;">
+            <div class="container py-5">
+                <div class="row">
+                    <div class="col text-center">
+                        <!--<h1 class="text-white">Contenido Responsivo</h1>--?-->
+                        <img src="imagen1H.png" alt="Imagen 2" class="img-fluid">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr class="line">
+        <div class="w-100" id="telefono" style="background-color: #79aea997;">
+            <div class="container py-5">
+                <div class="row">
+                    <div class="col text-center">
+                        <h1 class="text-white" >Contactanos</h1>
+                        <img src="infoEdulife.png" alt="Imagen 2" class="img-fluid">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer class="footer-dark">
+            <div class="container">
+                <p class="parrafoBlanco">© 2024 Edulift. Todos los derechos reservados.</p>
+                <p class="parrafoBlanco">©xJoseph777x </p>
+                <p class="parrafoBlanco">Enlaces adicionales | Información de contacto</p>
+            </div>
+        </footer>
+        <button id="botonSubir" onclick="subirArriba()">Subir</button>
+        <script>
+            // JavaScript para controlar la animación
+        const slider = document.querySelector('.slider');
+        let index = 0;
+        let autoSlide;
+
+        function changeSlide() {
+            index++;
+            if (index >= slider.children.length) {
+                index = 0; // Regresa al primer slide después del último
+            }
+            slider.style.transform = `translateX(-${index * 100}%)`;
+        }
+
+        function goToSlide(slideIndex) {
+            clearInterval(autoSlide); // Detener la animación automática
+            index = slideIndex;
+            slider.style.transform = `translateX(-${index * 100}%)`;
+        }
+
+        // Función para iniciar la animación automática
+        function startAutoSlide() {
+            autoSlide = setInterval(changeSlide, 3000); // Cambia de slide cada 3 segundos
+        }
+
+        // Iniciar la animación automática
+        startAutoSlide();
+
+         // Mostrar el botón cuando se hace scroll hacia abajo
+         window.onscroll = function() {
+            var boton = document.getElementById("botonSubir");
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                boton.style.display = "block";
+            } else {
+                boton.style.display = "none";
+            }
+        };
+
+        // Función para subir hasta arriba
+        function subirArriba() {
+            document.body.scrollTop = 0; // Para Safari
+            document.documentElement.scrollTop = 0; // Para Chrome, Firefox, IE y Opera
+        }
+        </script>
+
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    
+    </body>
+</html>
